@@ -1,0 +1,10 @@
+//le Merge
+MERGE (:Locations {loct_id: ""})-[:LOCATED_AT]->(:Departments {dept_id_dep: "", dep_name: "", manager_id: "", loc_id: ""})<-[:WORKS_IN]-(n2:Employees {emp_id: "", f_name: "", l_name: "", ssn: "", b_date: "", sex: "", address: "", salary: "", manager_id: ""})-[:HAS_JOB]->(:Jobs {job_ident: "", job_title: "", min_salary: "", max_salary: ""})<-[:HELD_IN_PAST {start_date: "", dept_: ""}]-(n2)
+
+
+// le match
+MATCH path0 = (:Locations {loct_id: ""})-[:LOCATED_AT]->(:Departments {dept_id_dep: "", dep_name: "", manager_id: "", loc_id: ""})<-[:WORKS_IN]-(n2:Employees {emp_id: "", f_name: "", l_name: "", ssn: "", b_date: "", sex: "", address: "", salary: "", manager_id: ""})-[:HAS_JOB]->(:Jobs {job_ident: "", job_title: "", min_salary: "", max_salary: ""})<-[:HELD_IN_PAST {start_date: "", dept_: ""}]-(n2)
+RETURN path0
+
+//le create
+CREATE (:Locations {loct_id: ""})-[:LOCATED_AT]->(:Departments {dept_id_dep: "", dep_name: "", manager_id: "", loc_id: ""})<-[:WORKS_IN]-(n2:Employees {emp_id: "", f_name: "", l_name: "", ssn: "", b_date: "", sex: "", address: "", salary: "", manager_id: ""})-[:HAS_JOB]->(:Jobs {job_ident: "", job_title: "", min_salary: "", max_salary: ""})<-[:HELD_IN_PAST {start_date: "", dept_: ""}]-(n2)
